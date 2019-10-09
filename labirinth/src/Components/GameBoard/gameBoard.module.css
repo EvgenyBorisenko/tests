@@ -1,0 +1,19 @@
+.gameBoard {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+
+.gameFiled {
+  width: 150px;
+  height: 150px;
+  background-color: grey;
+  margin: 5px;
+}
+
+.box {
+  display: flex;
+  flex-flow: row wrap;
+}
