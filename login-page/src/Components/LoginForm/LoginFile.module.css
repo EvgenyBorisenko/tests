@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  width: 1200px;
+  height: 800px;
+  margin: 0 auto;
+  align-items: center;
+  background-color: grey;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+  padding-top: 80px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.loginLabel {
+  margin-bottom: 10px;
+}
+
+.loginInput {
+  width: 200px;
+  height: 40px;
+}
+
+.loginButton {
+  width: 200px;
+  height: 40px;
+  background-color: linear-gradient(45deg, rgb(66, 212, 9), rgb(148, 179, 11));
+  border: solid 1px green;
+  color: white;
+  margin: 0 auto;
+}
