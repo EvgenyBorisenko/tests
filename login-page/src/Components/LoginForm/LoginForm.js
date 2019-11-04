@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
 import s from './LoginForm.module.css';
 
-
-
-
 class LoginForm extends Component {
   state = {
     login: '',
     password: '',
-    loginError: "",
-    passwordError: "",
+    loginError: '',
+    passwordError: '',
     isOpen: true,
   };
 
-
-  handleChange = e => {
+  handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
   validate = () => {
-    let loginError = "";
-    let passwordError = "";
+    let loginError = '';
+    let passwordError = '';
 
     if (!this.state.login) {
-      loginError = "Value is required";
+      loginError = 'Value is required';
     }
     if (!this.state.password) {
-      passwordError = "Value is required";
+      passwordError = 'Value is required';
     }
     if (passwordError || loginError) {
       this.setState({ passwordError, loginError });
@@ -37,57 +33,64 @@ class LoginForm extends Component {
     return true;
   };
 
-  handleSubmit = e => {
-    e.preventDefault()
+  handleSubmit = (e) => {
+    e.preventDefault();
     const isValid = this.validate();
     if (isValid) {
+      this.handleClose();
       console.log(this.state);
-
     }
-
   };
 
-  // handleClose = () => {
-  //   this.setState({ isOpen: false });
-  // };
+  handleClose = () => {
+    this.setState({ isOpen: false });
+  };
 
   render() {
-    const { login, password, } = this.state;
+    const { login, password } = this.state;
 
-    const { isOpen } = this.state
+    const { isOpen } = this.state;
     return (
-      <div className={s.container}>
-        {isOpen && (<form className={s.loginForm} onSubmit={this.handleSubmit}>
-          <div className={s.inputBox}>
-            <label className={s.loginLabel} >Login</label>
-            <input
-              minLength="6"
-              type="text"
-              name="login"
-              value={login}
-              onChange={this.handleChange}
-              className={s.loginInput} />
-            <p style={{ fontSize: 14, color: "red" }}>
-              {this.state.loginError}
-            </p>
-          </div>
+      <div>
+        {isOpen && (
+          <div className={s.container}>
+            <form className={s.loginForm} onSubmit={this.handleSubmit}>
+              <div className={s.inputBox}>
+                <label className={s.loginLabel}>Login</label>
+                <input
+                  minLength='6'
+                  type='text'
+                  name='login'
+                  value={login}
+                  onChange={this.handleChange}
+                  className={s.loginInput}
+                />
+                <p style={{ fontSize: 14, color: 'red' }}>
+                  {this.state.loginError}
+                </p>
+              </div>
 
-          <div className={s.inputBox}>
-            <label className={s.loginLabel} >Password</label>
-            <input
-              minLength="8"
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-              className={s.loginInput} />
-            <p style={{ fontSize: 14, color: "red" }}>
-              {this.state.passwordError}
-            </p>
-          </div>
+              <div className={s.inputBox}>
+                <label className={s.loginLabel}>Password</label>
+                <input
+                  minLength='8'
+                  type='password'
+                  name='password'
+                  value={password}
+                  onChange={this.handleChange}
+                  className={s.loginInput}
+                />
+                <p style={{ fontSize: 14, color: 'red' }}>
+                  {this.state.passwordError}
+                </p>
+              </div>
 
-          <button className={s.loginButton} type="submit" onClick={this.handleClose}>Submit</button>
-        </form>)}
+              <button className={s.loginButton} type='submit'>
+                Submit
+              </button>
+            </form>
+          </div>
+        )}
       </div>
     );
   }

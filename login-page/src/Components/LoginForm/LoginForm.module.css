@@ -10,7 +10,7 @@
   height: 800px;
   margin: 0 auto;
   align-items: center;
-  background-color: grey;
+  background-color: rgb(169, 169, 169, 0.8);
 }
 
 .loginForm {
@@ -21,6 +21,7 @@
   padding-top: 80px;
   margin: 0 auto;
   background-color: white;
+  border-radius: 5px;
 }
 
 .inputBox {
@@ -43,10 +44,16 @@
 }
 
 .loginButton {
+  font-size: 16px;
   width: 200px;
   height: 40px;
   background: rgb(7, 148, 148);
-  background: linear-gradient(90deg, rgba(7, 148, 148, 1) 1%, rgba(6, 163, 87, 1) 43%, rgba(22, 245, 115, 0.973) 92%);
+  background: linear-gradient(
+    90deg,
+    rgba(7, 148, 148, 1) 1%,
+    rgba(6, 163, 87, 1) 43%,
+    rgba(56, 199, 116, 0.973) 92%
+  );
   border: none;
   border-radius: 5px;
   color: #fff;
