@@ -32,19 +32,24 @@
 }
 
 .loginLabel {
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
 .loginInput {
   width: 200px;
   height: 40px;
+  border: solid 1px;
 }
 
 .loginButton {
   width: 200px;
   height: 40px;
-  background-color: linear-gradient(45deg, rgb(66, 212, 9), rgb(148, 179, 11));
-  border: solid 1px green;
-  color: white;
+  background: rgb(7, 148, 148);
+  background: linear-gradient(90deg, rgba(7, 148, 148, 1) 1%, rgba(6, 163, 87, 1) 43%, rgba(22, 245, 115, 0.973) 92%);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
   margin: 0 auto;
+  cursor: pointer;
 }
