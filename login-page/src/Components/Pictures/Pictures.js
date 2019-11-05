@@ -5,8 +5,8 @@ import mapper from './mapper';
 const Pictures = () => {
   const [hits, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [postPerPage, setPostPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState(10);
   console.log(hits);
   useEffect(() => {
     const fetchPosts = async () => {

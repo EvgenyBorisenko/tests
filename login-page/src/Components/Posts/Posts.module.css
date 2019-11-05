@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  flex-flow: wrap;
+  margin-bottom: 30px;
+
+}
+
+.imageBox {
+  list-style: none;
+}
+
+.image {
+  padding: 10px;
+  display: block;
+  width: 350px;
+  height: 200px;
+}

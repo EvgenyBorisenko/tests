@@ -1,20 +1,53 @@
-import React from 'react';
-import LoginForm from './Components/LoginForm/LoginForm';
-import Pictures from './Components/Pictures/Pictures';
-import { BrowserRouter, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+// import LoginForm from './Components/LoginForm/LoginForm';
+import axios from 'axios';
+import Posts from './Components/Posts/Posts';
+import Pagination from './Components/Paginator/Pagination';
+
+const URL =
+  `https://pixabay.com/api/?image&per_page=100&&page=category=nature&key=12869213-d0e5717d841c234d773fc655d`;
 
 
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Route path="/" component={LoginForm} />
-        <Route path="/Pictures" component={Pictures} />
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pictures: [],
+      currentPage: 1,
+      postsPerPage: 9,
+      setCurrentPage: 1,
+    };
+  }
 
+  componentDidMount() {
+    axios
+      .get(URL)
+      .then(({ data }) => {
+        this.setState({ pictures: data.hits });
+        console.log(data.hits);
+      })
+      .catch();
+  };
+
+
+  render() {
+    const { pictures, currentPage, postsPerPage, setCurrentPage } = this.state;
+
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = pictures.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = pageNumbers => setCurrentPage(pageNumbers);
+
+    return (
+      <div>
+        {/* <LoginForm /> */}
+        <Posts items={currentPosts} />
+        <Pagination postsPerPage={postsPerPage} totalPosts={pictures.length} paginate={paginate} />
       </div>
-    </BrowserRouter>
-  );
+    );
+  }
 }
 
 export default App;
